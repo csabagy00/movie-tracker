@@ -1,12 +1,14 @@
+using System.Collections.ObjectModel;
+
 namespace MovieTracker.ViewModels;
 
 public class AddItemViewModel : ViewModelBase
 {
-    private string _selectedType;
+    private string? _selectedType;
 
     public AddItemViewModel()
     {
-        _selectedType = "Movie";
+        ItemTypes = new ObservableCollection<string>{"Movie", "Series"};
     }
 
     public string SelectedType
@@ -22,4 +24,6 @@ public class AddItemViewModel : ViewModelBase
             }
         }
     }
+    
+    public ObservableCollection<string> ItemTypes { get; set; }
 }
