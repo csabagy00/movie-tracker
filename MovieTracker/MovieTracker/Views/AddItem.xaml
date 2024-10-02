@@ -8,10 +8,8 @@
              d:DesignHeight="600" d:DesignWidth="700">
     <Grid>
         <TextBlock Text="Item Type" VerticalAlignment="Center" Margin="5" FontSize="16"/>
-        <ComboBox SelectedValue="{Binding SelectedType, UpdateSourceTrigger=PropertyChanged}" Width="120" Height="20">
-            <ComboBoxItem Content="Movie"/>
-            <ComboBoxItem Content="Series"/>
-        </ComboBox>
+        <ComboBox ItemsSource="{Binding ItemTypes}"
+            SelectedItem="{Binding SelectedType, UpdateSourceTrigger=PropertyChanged}" Width="120" Height="20" />
         
         <StackPanel>
             <StackPanel.Style>
@@ -40,6 +38,5 @@
             </StackPanel.Style>
             <local:AddSeries />
         </StackPanel>
-        
     </Grid>
 </UserControl>
