@@ -14,5 +14,6 @@
         </Grid.ColumnDefinitions>
         
         <views:SideBar />
+        <views:AddItem Grid.Column="1" />
     </Grid>
 </Window>
