@@ -56,7 +56,8 @@
                 FontSize="20"
                 BorderThickness="0"
                 Background="LightGray"
-                Margin="0 30 0 0"/> 
+                Margin="0 30 0 0"
+                Command="{Binding ShowAddItemCommand}"/> 
         
         <Button Content="Statistics"
                 Width="120"
