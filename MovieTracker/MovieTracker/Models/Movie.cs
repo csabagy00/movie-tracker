@@ -2,12 +2,18 @@ namespace MovieTracker.Models;
 
 public class Movie : Item
 {
-    public int Length { get; }
+    public int Id { get; set; }
+    
+    public int Length { get; set; }
 
-    public Movie(string title, DateOnly release, List<string> genres, int length, bool watched)
+    public Movie()
+    {
+    }
+    
+    public Movie(string title, DateTime releaseDate, List<Genre> genres, int length, bool watched)
     {
         Title = title;
-        ReleaseDate = release;
+        ReleaseDate = releaseDate;
         Genres = genres;
         Length = length;
         Watched = watched;
