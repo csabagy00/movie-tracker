@@ -2,10 +2,15 @@ namespace MovieTracker.Models;
 
 public class Series : Item
 {
-    public List<Season> TotalSeasons { get; }
-    public int AvgEpLength { get; }
+    public int Id { get; set; }
+    public int TotalSeasons { get; set; }
+    public int AvgEpLength { get; set; }
 
-    public Series(string title, DateOnly release, List<string> genres, List<Season> totalSeasons, int avgEpLength, bool watched)
+    public Series()
+    {
+    }
+    
+    public Series(string title, DateTime release, List<Genre> genres, int totalSeasons, int avgEpLength, bool watched)
     { 
         Title = title;
         ReleaseDate = release;
