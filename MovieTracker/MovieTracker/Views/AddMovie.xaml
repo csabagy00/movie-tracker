@@ -44,6 +44,6 @@
         <TextBlock Grid.Row="6" Grid.Column="0" Text="Watched" VerticalAlignment="Center" Margin="5" FontSize="16"/>
         <CheckBox Grid.Row="6" Grid.Column="1" Margin="5" IsChecked="{Binding Watched}"/>
 
-        <Button Grid.Row="7" Grid.Column="1" Content="Add" Width="100"/>
+        <Button Grid.Row="7" Grid.Column="1" Content="Add" Width="100" Command="{Binding AddMovieCommand}"/>
     </Grid>
 </UserControl>
