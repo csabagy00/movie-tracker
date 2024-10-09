@@ -1,5 +1,6 @@
 using System.Windows.Input;
 using MovieTracker.Commands;
+using MovieTracker.Database;
 
 namespace MovieTracker.ViewModels;
 
@@ -18,12 +19,14 @@ public class MainViewModel : ViewModelBase
             }
         }
     }
+    public MovieTrackerContext MovieTrackerContext { get; set; }
     
     public SideBarViewModel SideBarViewModel { get; set; }
 
     public MainViewModel()
     {
         _selectedView = null;
-        SideBarViewModel = new SideBarViewModel(this);
+        MovieTrackerContext = new MovieTrackerContext();
+        SideBarViewModel = new SideBarViewModel(this, MovieTrackerContext);
     }
 }
