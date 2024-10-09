@@ -22,7 +22,7 @@
                     </Style.Triggers>
                 </Style>
             </StackPanel.Style>
-            <local:AddMovie />
+            <local:AddMovie DataContext="{Binding AddMovieViewModel}"/>
         </StackPanel>
         
         <StackPanel>
