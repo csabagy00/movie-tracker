@@ -24,26 +24,26 @@
         </Grid.RowDefinitions>
         
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Title" VerticalAlignment="Center" Margin="5 20 5 5" FontSize="16"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Width="120" Margin="5 20 5 5" FontSize="16"/>
-        
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Width="120" Margin="5 20 5 5" FontSize="16"/>
+
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Release Date" VerticalAlignment="Center" Margin="5" FontSize="16"/>
-        <DatePicker Grid.Row="1" Grid.Column="1" Width="120"/>
-        
+        <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding ReleaseDate, UpdateSourceTrigger=PropertyChanged}" Width="120"/>
+
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Genres" VerticalAlignment="Center" Margin="5" FontSize="16"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Width="120" Margin="5" FontSize="16"/>
-        
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding GenreOne}"  Width="120" Margin="5" FontSize="16"/>
+
         <TextBlock Grid.Row="3" Grid.Column="0" FontSize="16"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Width="120" Margin="5" FontSize="16"/>
-        
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding GenreTwo}" Width="120" Margin="5" FontSize="16"/>
+
         <TextBlock Grid.Row="4" Grid.Column="0" FontSize="16"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Width="120" Margin="5" FontSize="16"/>
-        
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding GenreThree}" Width="120" Margin="5" FontSize="16"/>
+
         <TextBlock Grid.Row="5" Grid.Column="0" Text="Length" VerticalAlignment="Center" Margin="5" FontSize="16"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Width="120" Margin="5" FontSize="16"/>
-        
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Length}" Width="120" Margin="5" FontSize="16"/>
+
         <TextBlock Grid.Row="6" Grid.Column="0" Text="Watched" VerticalAlignment="Center" Margin="5" FontSize="16"/>
-        <CheckBox Grid.Row="6" Grid.Column="1" Margin="5"/>
-        
+        <CheckBox Grid.Row="6" Grid.Column="1" Margin="5" IsChecked="{Binding Watched}"/>
+
         <Button Grid.Row="7" Grid.Column="1" Content="Add" Width="100"/>
     </Grid>
 </UserControl>
