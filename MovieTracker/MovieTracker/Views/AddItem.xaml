@@ -7,9 +7,15 @@
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="700">
     <Grid>
-        <TextBlock Text="Item Type" VerticalAlignment="Center" Margin="5" FontSize="16"/>
-        <ComboBox ItemsSource="{Binding ItemTypes}"
-            SelectedItem="{Binding SelectedType, UpdateSourceTrigger=PropertyChanged}" Width="120" Height="20" />
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0" Text="Item Type" VerticalAlignment="Top"  HorizontalAlignment="Center" Margin="10" FontSize="16"/>
+        <ComboBox Grid.Column="1" ItemsSource="{Binding ItemTypes}"
+            SelectedItem="{Binding SelectedType, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  HorizontalAlignment="Center" Width="120" Height="20" Margin="10"/>
         
         <StackPanel>
             <StackPanel.Style>
