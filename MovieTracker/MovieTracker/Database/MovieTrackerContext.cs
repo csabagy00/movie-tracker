@@ -12,7 +12,7 @@ public class MovieTrackerContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source=Database/MovieTracker.db");
+        optionsBuilder.UseSqlite("Data Source=Database\\MovieTracker.db");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
