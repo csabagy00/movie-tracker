@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MovieTracker.Models;
+using System.IO;
 
 namespace MovieTracker.Database;
 
@@ -9,6 +10,11 @@ public class MovieTrackerContext : DbContext
     public DbSet<Series> Series { get; set; }
     public DbSet<Genre> Genres { get; set; }
     public DbSet<Season> Seasons { get; set; }
+
+    public MovieTrackerContext()
+    {
+        ApplyMigration();
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -30,5 +36,10 @@ public class MovieTrackerContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+    }
+
+    private void ApplyMigration()
+    {
+        this.Database.Migrate();
     }
 }
