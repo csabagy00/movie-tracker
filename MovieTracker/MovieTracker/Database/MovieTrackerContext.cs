@@ -12,7 +12,19 @@ public class MovieTrackerContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source=Database\\MovieTracker.db");
+        string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+        string databaseFolder = Path.Combine(baseDirectory, "Database");
+
+        string dbPath = Path.Combine(databaseFolder, "MovieTracker.db");
+
+        if (!Directory.Exists(databaseFolder) || !File.Exists(dbPath))
+        {
+            Directory.CreateDirectory(databaseFolder);
+            File.Create(dbPath);
+        }
+
+        optionsBuilder.UseSqlite($"Data Source={dbPath}");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
