@@ -1,3 +1,4 @@
+using MovieTracker.Database;
 using System.Collections.ObjectModel;
 
 namespace MovieTracker.ViewModels;
@@ -5,10 +6,12 @@ namespace MovieTracker.ViewModels;
 public class AddItemViewModel : ViewModelBase
 {
     private string? _selectedType;
+    public AddMovieViewModel AddMovieViewModel { get; set; }
 
-    public AddItemViewModel()
+    public AddItemViewModel(MovieTrackerContext movieTrackerContext)
     {
         ItemTypes = new ObservableCollection<string>{"Movie", "Series"};
+        AddMovieViewModel = new AddMovieViewModel(movieTrackerContext);
     }
 
     public string SelectedType
