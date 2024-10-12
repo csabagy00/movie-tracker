@@ -6,15 +6,20 @@ using System.Windows.Input;
 
 namespace MovieTracker.ViewModels;
 
-public class AddMovieViewModel : ViewModelBase
+public class MovieViewModel : ViewModelBase
 {
     public ICommand AddMovieCommand { get; set; }
     private Movie Movie { get; set; }
 
-    public AddMovieViewModel(MovieTrackerContext movieTrackerContext)
+    public MovieViewModel(MovieTrackerContext movieTrackerContext)
     {
         Movie = new Movie(movieTrackerContext);
         AddMovieCommand = new RelayCommand<object>(ExecuteAddMovieCommand);
+    }
+
+    public MovieViewModel(Movie movie)
+    {
+        Movie = movie;
     }
 
     public void ExecuteAddMovieCommand(object parameter)
