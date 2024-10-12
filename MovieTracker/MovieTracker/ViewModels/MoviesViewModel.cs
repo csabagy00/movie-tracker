@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MovieTracker.Commands;
 using MovieTracker.Database;
-using MovieTracker.Models;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace MovieTracker.ViewModels;
 
 public class MoviesViewModel : ViewModelBase
 {
-    private ObservableCollection<Movie> _movies;
-    public ObservableCollection<Movie> Movies 
+    public ICommand SaveChanges { get; set; }
+
     private ObservableCollection<MovieViewModel> _movies;
     public ObservableCollection<MovieViewModel> Movies 
     { 
@@ -23,8 +24,13 @@ public class MoviesViewModel : ViewModelBase
     public MoviesViewModel(MovieTrackerContext context)
     {
         Context = context;
+        SaveChanges = new RelayCommand<object>(ExecuteSaveChanges);
         GetWatchedMovies(true);
+    }
 
+    private void ExecuteSaveChanges(object obj)
+    {
+        Context.SaveChanges();
     }
 
     public void GetWatchedMovies(bool watched)
