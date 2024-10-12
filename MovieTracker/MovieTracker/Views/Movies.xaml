@@ -13,8 +13,9 @@
                 <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate, StringFormat=\{0:yyyy-mm-dd\}}" Width="100" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Length(mins)" Binding="{Binding Length}" Width="100" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Genres" Binding="{Binding DisplayGenres}" Width="200" IsReadOnly="True"/>
-                <DataGridCheckBoxColumn Header="Watched" Binding="{Binding Watched}" />
+                <DataGridCheckBoxColumn Header="Watched" Binding="{Binding Watched, Mode=TwoWay}" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Save" Command="{Binding SaveChanges}" Width="80" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>
