@@ -11,12 +11,15 @@ public class SideBarViewModel : ViewModelBase
     private MoviesViewModel MoviesViewModel { get; set; }
     public ICommand ShowAddItemCommand { get; set; }
     public ICommand ShowMoviesCommand { get; set; }
+    public ICommand ShowUnwatchedMoviesCommand { get; set; }
 
     public SideBarViewModel(MainViewModel mainViewModel, MovieTrackerContext movieTrackerContext)
     {
         MainViewModel = mainViewModel;
         ShowAddItemCommand = new RelayCommand<object>(ShowAddItemView);
         ShowMoviesCommand = new RelayCommand<object>(ShowMoviesView);
+        ShowUnwatchedMoviesCommand = new RelayCommand<object>(ShowUnwatchedMoviesView);
+
         AddItemViewModel = new AddItemViewModel(movieTrackerContext);
         MoviesViewModel = new MoviesViewModel(movieTrackerContext);
     }
@@ -29,7 +32,13 @@ public class SideBarViewModel : ViewModelBase
 
     private void ShowMoviesView(object obj) 
     {
-        MoviesViewModel.GetWatchedMovies();
+        MoviesViewModel.GetWatchedMovies(true);
+        MainViewModel.SelectedView = MoviesViewModel;
+    }
+
+    private void ShowUnwatchedMoviesView(object obj)
+    {
+        MoviesViewModel.GetWatchedMovies(false);
         MainViewModel.SelectedView = MoviesViewModel;
     }
 }
