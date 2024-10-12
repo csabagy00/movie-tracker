@@ -25,9 +25,12 @@ public class MoviesViewModel : ViewModelBase
 
     }
 
-    private void GetWatchedMovies()
+    public void GetWatchedMovies()
     {
-        Movies = new ObservableCollection<Movie>(Context.Movies.Where(m => m.Watched == true).Include(m => m.Genres).ToList());
+        if(Movies == null || Movies.Count() != Context.Movies.Count())
+        {
+            Movies = new ObservableCollection<Movie>(Context.Movies.Where(m => m.Watched == true).Include(m => m.Genres).ToList());
+        }
     }
 }
 
