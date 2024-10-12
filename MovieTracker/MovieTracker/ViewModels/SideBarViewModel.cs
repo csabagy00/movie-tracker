@@ -8,6 +8,7 @@ public class SideBarViewModel : ViewModelBase
 {
     private MainViewModel MainViewModel { get; set; }
     private AddItemViewModel AddItemViewModel { get; set; }
+    private MoviesViewModel MoviesViewModel { get; set; }
     public ICommand ShowAddItemCommand { get; set; }
 
     public SideBarViewModel(MainViewModel mainViewModel, MovieTrackerContext movieTrackerContext)
@@ -15,6 +16,7 @@ public class SideBarViewModel : ViewModelBase
         MainViewModel = mainViewModel;
         ShowAddItemCommand = new RelayCommand<object>(ShowAddItemView);
         AddItemViewModel = new AddItemViewModel(movieTrackerContext);
+        MoviesViewModel = new MoviesViewModel(movieTrackerContext);
     }
 
     private void ShowAddItemView(object obj)
