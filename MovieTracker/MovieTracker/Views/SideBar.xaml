@@ -43,7 +43,8 @@
                         Width="120" 
                         FontSize="18" 
                         BorderThickness="0" 
-                        Background="LightGray"/>
+                        Background="LightGray"
+                        Command="{Binding ShowUnwatchedMoviesCommand}"/>
                 <Button Content="Series" 
                         Width="120" 
                         FontSize="18" 
