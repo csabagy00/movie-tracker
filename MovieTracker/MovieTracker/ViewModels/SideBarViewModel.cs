@@ -29,6 +29,7 @@ public class SideBarViewModel : ViewModelBase
 
     private void ShowMoviesView(object obj) 
     {
+        MoviesViewModel.GetWatchedMovies();
         MainViewModel.SelectedView = MoviesViewModel;
     }
 }
