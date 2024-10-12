@@ -21,15 +21,15 @@ public class MoviesViewModel : ViewModelBase
     public MoviesViewModel(MovieTrackerContext context)
     {
         Context = context;
-        GetWatchedMovies();
+        GetWatchedMovies(true);
 
     }
 
-    public void GetWatchedMovies()
+    public void GetWatchedMovies(bool watched)
     {
         if(Movies == null || Movies.Count() != Context.Movies.Count())
         {
-            Movies = new ObservableCollection<Movie>(Context.Movies.Where(m => m.Watched == true).Include(m => m.Genres).ToList());
+            Movies = new ObservableCollection<Movie>(Context.Movies.Where(m => m.Watched == watched).Include(m => m.Genres).ToList());
         }
     }
 }
