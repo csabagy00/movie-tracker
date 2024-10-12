@@ -6,12 +6,12 @@ namespace MovieTracker.ViewModels;
 public class AddItemViewModel : ViewModelBase
 {
     private string? _selectedType;
-    public AddMovieViewModel AddMovieViewModel { get; set; }
+    public MovieViewModel MovieViewModel { get; set; }
 
     public AddItemViewModel(MovieTrackerContext movieTrackerContext)
     {
         ItemTypes = new ObservableCollection<string>{"Movie", "Series"};
-        AddMovieViewModel = new AddMovieViewModel(movieTrackerContext);
+        MovieViewModel = new MovieViewModel(movieTrackerContext);
     }
 
     public string SelectedType
