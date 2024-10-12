@@ -9,6 +9,8 @@ public class MoviesViewModel : ViewModelBase
 {
     private ObservableCollection<Movie> _movies;
     public ObservableCollection<Movie> Movies 
+    private ObservableCollection<MovieViewModel> _movies;
+    public ObservableCollection<MovieViewModel> Movies 
     { 
         get { return _movies; } 
         set {
@@ -29,7 +31,11 @@ public class MoviesViewModel : ViewModelBase
     {
         if(Movies == null || Movies.Count() != Context.Movies.Count())
         {
-            Movies = new ObservableCollection<Movie>(Context.Movies.Where(m => m.Watched == watched).Include(m => m.Genres).ToList());
+            Movies = new ObservableCollection<MovieViewModel>(
+                Context.Movies.Where(m => m.Watched == watched)
+                .Include(m => m.Genres)
+                .ToList()
+                .Select(movie => new MovieViewModel(movie)));
         }
     }
 }
