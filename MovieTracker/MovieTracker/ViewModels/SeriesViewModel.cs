@@ -1,25 +1,29 @@
-﻿using MovieTracker.Database;
+﻿using MovieTracker.Commands;
+using MovieTracker.Database;
 using MovieTracker.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MovieTracker.ViewModels;
 
 public class SeriesViewModel : ViewModelBase
 {
+    public ICommand AddSeriesCommand { get; set; }
     private Series _series;
 
     public SeriesViewModel(MovieTrackerContext movieTrackerContext)
     {
-
+        _series = new Series(movieTrackerContext);
+        AddSeriesCommand = new RelayCommand<object>(ExecuteAddSeriesCommand);
     }
 
     public SeriesViewModel(Series series)
     {
         _series = series;
+    }
+
+    private void ExecuteAddSeriesCommand(object obj)
+    {
+        _series.AddSeriesToDb(obj);
     }
 
     public string Title
