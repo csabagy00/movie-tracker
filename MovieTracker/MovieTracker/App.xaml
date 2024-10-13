@@ -9,5 +9,8 @@
          <DataTemplate DataType="{x:Type viewModels:AddItemViewModel}">
              <views:AddItem />
          </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:MoviesViewModel}">
+            <views:Movies />
+        </DataTemplate>
     </Application.Resources>
 </Application>

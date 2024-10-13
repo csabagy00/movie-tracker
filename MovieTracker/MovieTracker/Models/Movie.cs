@@ -8,6 +8,19 @@ public class Movie : Item
     
     public int Length { get; set; }
     public MovieTrackerContext Context { get; set; }
+    public string DisplayGenres 
+    { 
+        get
+        {
+            if (Genres.Count == 1)
+                return Genres[0].Name;
+
+            if (Genres.Count == 0 || Genres == null)
+                return "N/A";
+
+            return string.Join(", ", Genres.Select(g => g.Name));
+        } 
+    }
 
     public Movie(MovieTrackerContext movieTrackerContext)
     {
