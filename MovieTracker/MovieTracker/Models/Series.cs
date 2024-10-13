@@ -1,3 +1,5 @@
+using MovieTracker.Database;
+
 namespace MovieTracker.Models;
 
 public class Series : Item
@@ -21,10 +23,13 @@ public class Series : Item
             return string.Join(", ", Genres.Select(gen => gen.Name));
         }
     }
+    public Series(MovieTrackerContext context)
     {
+        Genres = new List<Genre>();
+        Context = context;
     }
     
-    public Series(string title, DateTime release, List<Genre> genres, int totalSeasons, int avgEpLength, bool watched)
+    public Series(string title, DateTime release, List<Genre> genres, int totalSeasons, int avgEpLength, bool watched, MovieTrackerContext  context)
     { 
         Title = title;
         ReleaseDate = release;
@@ -32,5 +37,16 @@ public class Series : Item
         TotalSeasons = totalSeasons;
         AvgEpLength = avgEpLength;
         Watched = watched;
+        Context = context;
+    }
+
+    public void AddSeriesToDb(object obj)
+    {
+        if(obj is Series)
+        {
+            Series series = (Series)obj;
+            Context.Series.Add(series);
+            Context.SaveChanges();
+        }
     }
 }
