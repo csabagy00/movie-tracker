@@ -6,7 +6,21 @@ public class Series : Item
     public int TotalSeasons { get; set; }
     public int AvgEpLength { get; set; }
 
-    public Series()
+    public MovieTrackerContext Context { get; set; }
+
+    public string DisplayGenres
+    {
+        get
+        {
+            if (Genres.Count == 1)
+                return Genres[0].Name;
+
+            if (Genres.Count == 0 || Genres == null)
+                return "N/A";
+
+            return string.Join(", ", Genres.Select(gen => gen.Name));
+        }
+    }
     {
     }
     
