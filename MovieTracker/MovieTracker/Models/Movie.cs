@@ -1,4 +1,5 @@
 using MovieTracker.Database;
+using System.Windows;
 
 namespace MovieTracker.Models;
 
@@ -32,6 +33,8 @@ public class Movie : Item
             Movie movie = (Movie)obj;
             Context.Movies.Add(movie);
             Context.SaveChanges();
+
+            MessageBox.Show($"The movie {Title} has been added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
