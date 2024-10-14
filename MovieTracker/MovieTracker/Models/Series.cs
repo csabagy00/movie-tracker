@@ -1,4 +1,5 @@
 using MovieTracker.Database;
+using System.Windows;
 
 namespace MovieTracker.Models;
 
@@ -47,6 +48,8 @@ public class Series : Item
             Series series = (Series)obj;
             Context.Series.Add(series);
             Context.SaveChanges();
+
+            MessageBox.Show($"The series {Title} has been added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
