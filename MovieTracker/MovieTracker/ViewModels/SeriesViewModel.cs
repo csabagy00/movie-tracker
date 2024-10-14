@@ -23,7 +23,7 @@ public class SeriesViewModel : ViewModelBase
 
     private void ExecuteAddSeriesCommand(object obj)
     {
-        _series.AddSeriesToDb(obj);
+        _series.AddSeriesToDb(_series);
     }
 
     public string Title
