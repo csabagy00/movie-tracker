@@ -53,6 +53,20 @@ public class MovieViewModel : ViewModelBase
         }
     }
 
+    public string DisplayGenres
+    {
+        get
+        {
+            if (Movie.Genres.Count == 1)
+                return Movie.Genres[0].Name;
+
+            if (Movie.Genres.Count == 0 || Movie.Genres == null)
+                return "N/A";
+
+            return string.Join(", ", Movie.Genres.Select(g => g.Name));
+        }
+    }
+
     private string _genreOne;
     public string GenreOne
     {

@@ -52,6 +52,20 @@ public class SeriesViewModel : ViewModelBase
         }
     }
 
+    public string DisplayGenres
+    {
+        get
+        {
+            if (_series.Genres.Count == 1)
+                return _series.Genres[0].Name;
+
+            if (_series.Genres.Count == 0 || _series.Genres == null)
+                return "N/A";
+
+            return string.Join(", ", _series.Genres.Select(g => g.Name));
+        }
+    }
+
     private string _genreOne;
     public string GenreOne
     {
