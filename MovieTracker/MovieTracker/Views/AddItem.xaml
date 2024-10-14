@@ -42,7 +42,7 @@
                     </Style.Triggers>
                 </Style>
             </StackPanel.Style>
-            <local:AddSeries />
+            <local:AddSeries DataContext="{Binding SeriesViewModel}"/>
         </StackPanel>
     </Grid>
 </UserControl>
