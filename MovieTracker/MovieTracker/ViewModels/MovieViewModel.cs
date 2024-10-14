@@ -25,6 +25,13 @@ public class MovieViewModel : ViewModelBase
     public void ExecuteAddMovieCommand(object parameter)
     {
         Movie.AddMovieToDb(Movie);
+        Title = "";
+        ReleaseDate = new DateTime();
+        GenreOne = "";
+        GenreTwo = "";
+        GenreThree = "";
+        Length = 0;
+        Watched = false;
     }
 
     public string Title
