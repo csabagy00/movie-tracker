@@ -41,7 +41,7 @@ public class Series : Item
         Context = context;
     }
 
-    public void AddSeriesToDb(object obj)
+    public bool AddSeriesToDb(object obj)
     {
         if(obj is Series)
         {
@@ -50,6 +50,9 @@ public class Series : Item
             Context.SaveChanges();
 
             MessageBox.Show($"The series {Title} has been added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            return true;
         }
+        return false;
     }
 }
