@@ -26,7 +26,7 @@ public class Movie : Item
         Context = movieTrackerContext;
     }
 
-    public void AddMovieToDb(object obj)
+    public bool AddMovieToDb(object obj)
     {
         if (obj is Movie) 
         {
@@ -35,6 +35,9 @@ public class Movie : Item
             Context.SaveChanges();
 
             MessageBox.Show($"The movie {Title} has been added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            return true;
         }
+        return false;
     }
 }
