@@ -28,7 +28,7 @@
                     </Style.Triggers>
                 </Style>
             </StackPanel.Style>
-            <local:AddMovie DataContext="{Binding AddMovieViewModel}"/>
+            <local:AddMovie DataContext="{Binding MovieViewModel}"/>
         </StackPanel>
         
         <StackPanel>
@@ -42,7 +42,7 @@
                     </Style.Triggers>
                 </Style>
             </StackPanel.Style>
-            <local:AddSeries />
+            <local:AddSeries DataContext="{Binding SeriesViewModel}"/>
         </StackPanel>
     </Grid>
 </UserControl>

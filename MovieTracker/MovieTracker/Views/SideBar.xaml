@@ -28,7 +28,8 @@
                         Width="120" 
                         FontSize="18" 
                         BorderThickness="0" 
-                        Background="LightGray"/>
+                        Background="LightGray"
+                        Command="{Binding ShowSeriesCommand}"/>
             </StackPanel>
         </Expander>
     
@@ -49,7 +50,8 @@
                         Width="120" 
                         FontSize="18" 
                         BorderThickness="0" 
-                        Background="LightGray"/>
+                        Background="LightGray"
+                        Command="{Binding ShowUnwatchedSeriesCommand}"/>
             </StackPanel>
         </Expander>
     

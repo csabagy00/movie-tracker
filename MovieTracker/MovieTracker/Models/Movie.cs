@@ -1,4 +1,5 @@
 using MovieTracker.Database;
+using System.Windows;
 
 namespace MovieTracker.Models;
 
@@ -8,19 +9,6 @@ public class Movie : Item
     
     public int Length { get; set; }
     public MovieTrackerContext Context { get; set; }
-    public string DisplayGenres 
-    { 
-        get
-        {
-            if (Genres.Count == 1)
-                return Genres[0].Name;
-
-            if (Genres.Count == 0 || Genres == null)
-                return "N/A";
-
-            return string.Join(", ", Genres.Select(g => g.Name));
-        } 
-    }
 
     public Movie(MovieTrackerContext movieTrackerContext)
     {
@@ -38,13 +26,18 @@ public class Movie : Item
         Context = movieTrackerContext;
     }
 
-    public void AddMovieToDb(object obj)
+    public bool AddMovieToDb(object obj)
     {
         if (obj is Movie) 
         {
             Movie movie = (Movie)obj;
             Context.Movies.Add(movie);
             Context.SaveChanges();
+
+            MessageBox.Show($"The movie {Title} has been added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            return true;
         }
+        return false;
     }
 }
