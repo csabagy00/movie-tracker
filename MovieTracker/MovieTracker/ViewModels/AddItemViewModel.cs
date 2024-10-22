@@ -7,11 +7,13 @@ public class AddItemViewModel : ViewModelBase
 {
     private string? _selectedType;
     public MovieViewModel MovieViewModel { get; set; }
+    public SeriesViewModel SeriesViewModel { get; set; }
 
     public AddItemViewModel(MovieTrackerContext movieTrackerContext)
     {
         ItemTypes = new ObservableCollection<string>{"Movie", "Series"};
         MovieViewModel = new MovieViewModel(movieTrackerContext);
+        SeriesViewModel = new SeriesViewModel(movieTrackerContext);
     }
 
     public string SelectedType
@@ -22,7 +24,6 @@ public class AddItemViewModel : ViewModelBase
             if (_selectedType != value)
             {
                 _selectedType = value;
-                Console.WriteLine($"SelectedType changed to: {_selectedType}");
                 OnPropertyChanged(nameof(SelectedType));
             }
         }

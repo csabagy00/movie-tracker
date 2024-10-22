@@ -24,7 +24,16 @@ public class MovieViewModel : ViewModelBase
 
     public void ExecuteAddMovieCommand(object parameter)
     {
-        Movie.AddMovieToDb(Movie);
+        if (Movie.AddMovieToDb(Movie))
+        {
+            Title = "";
+            ReleaseDate = new DateTime();
+            GenreOne = "";
+            GenreTwo = "";
+            GenreThree = "";
+            Length = 0;
+            Watched = false;
+        }
     }
 
     public string Title
@@ -50,6 +59,20 @@ public class MovieViewModel : ViewModelBase
                 Movie.ReleaseDate = value;
                 OnPropertyChanged(nameof(ReleaseDate));
             }
+        }
+    }
+
+    public string DisplayGenres
+    {
+        get
+        {
+            if (Movie.Genres.Count == 1)
+                return Movie.Genres[0].Name;
+
+            if (Movie.Genres.Count == 0 || Movie.Genres == null)
+                return "N/A";
+
+            return string.Join(", ", Movie.Genres.Select(g => g.Name));
         }
     }
 
