@@ -23,15 +23,17 @@ public class SeriesViewModel : ViewModelBase
 
     private void ExecuteAddSeriesCommand(object obj)
     {
-        _series.AddSeriesToDb(_series);
-        Title = "";
-        ReleaseDate = new DateTime();
-        GenreOne = "";
-        GenreTwo = "";
-        GenreThree = "";
-        TotalSeasons = 0;
-        AvgEpLength = 0;
-        Watched = false;
+        if (_series.AddSeriesToDb(_series))
+        {
+            Title = "";
+            ReleaseDate = new DateTime();
+            GenreOne = "";
+            GenreTwo = "";
+            GenreThree = "";
+            TotalSeasons = 0;
+            AvgEpLength = 0;
+            Watched = false;
+        }
     }
 
     public string Title
