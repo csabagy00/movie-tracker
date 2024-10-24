@@ -15,5 +15,8 @@
         <DataTemplate DataType="{x:Type viewModels:SeriesListViewModel}">
             <views:Series />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:StatisticsViewModel}">
+            <views:Statistics />
+        </DataTemplate>
     </Application.Resources>
 </Application>
