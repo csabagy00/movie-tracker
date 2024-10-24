@@ -31,6 +31,7 @@ public class SideBarViewModel : ViewModelBase
         AddItemViewModel = new AddItemViewModel(movieTrackerContext);
         MoviesViewModel = new MoviesViewModel(movieTrackerContext);
         SeriesListViewModel = new SeriesListViewModel(movieTrackerContext);
+        StatisticsViewModel = new StatisticsViewModel();
     }
 
     private void ShowAddItemView(object obj)
