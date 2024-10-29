@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="MovieTracker.Views.AllStats"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieTracker.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Watched Movies:"/>
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding MoviesCount}" />
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Watchlisted Movies:"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding MoviesCountUnwatched}" />
+
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Overall time spent(mins):"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding TimeSpent}" />
+
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Longest movie watched:"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Longest}" />
+
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="Shortest movie watched:"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Shortest}" />
+
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Most watched Genre"/>
+        <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding MostWatchedGenre}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="6" Text="Completion Rate"/>
+        <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding CompletionRate}" />
+
+    </Grid>
+</UserControl>
