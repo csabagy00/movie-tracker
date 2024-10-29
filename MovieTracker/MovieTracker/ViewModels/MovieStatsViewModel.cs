@@ -1,20 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MovieTracker.Database;
+using MovieTracker.Models;
 
 namespace MovieTracker.ViewModels;
 
 public class MovieStatsViewModel : ViewModelBase
 {
+    private MovieStatsModel _model;
+
+    public MovieStatsViewModel(MovieTrackerContext context)
+    {
+        _model = new MovieStatsModel(context);
+        _moviesCount = _model.GetWatchedMoviesCount();
+        _moviesCountUnwatched = _model.GetUnwatchedMoviesCount();
+        _timeSpent = _model.GetTimeSpent();
+        _longest = _model.GetLongestMovieTitle();
+        _shortest = _model.GetShortestMovieTitle();
+        _mostWatchedGenre = _model.GetMostWatchedGenre();
+        _completionRate = _model.GetCompletionRate();
+    }
+
     private int _moviesCount;
     public int MoviesCount
     {
         get { return _moviesCount; }
         set
         {
-
+            
         }
     }
 
