@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieTracker.Database;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,6 +14,8 @@ public class StatisticsViewModel : ViewModelBase
 
     private string? _selectedType;
 
+    public MovieStatsViewModel MovieStatsViewModel { get; set; }
+
     public string SelectedType
     {
         get { return _selectedType; }
@@ -26,8 +29,9 @@ public class StatisticsViewModel : ViewModelBase
         }
     }
 
-    public StatisticsViewModel()
+    public StatisticsViewModel(MovieTrackerContext context)
     {
         Types = new ObservableCollection<string>{"All", "Movies", "Series"};
+        MovieStatsViewModel = new MovieStatsViewModel(context);
     }
 }
