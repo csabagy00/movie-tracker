@@ -40,7 +40,7 @@
                     </Style.Triggers>
                 </Style>
             </StackPanel.Style>
-            
+            <local:MovieStats DataContext="{Binding MovieStatsViewModel}"/>
         </StackPanel>
 
         <StackPanel>
