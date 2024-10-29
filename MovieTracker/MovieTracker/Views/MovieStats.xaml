@@ -41,7 +41,7 @@
         <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding MostWatchedGenre}"/>
 
         <TextBlock Grid.Column="0" Grid.Row="6" Text="Completion Rate"/>
-        <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding CompletionRate}" />
+        <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding CompletionRate, StringFormat='{}{0}%'}" />
 
     </Grid>
 </UserControl>
