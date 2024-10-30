@@ -36,6 +36,9 @@ public class MovieTrackerContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Genre>().Property<int?>("MovieId");
+        modelBuilder.Entity<Genre>().Property<int?>("SeriesId");
     }
 
     private void ApplyMigration()
