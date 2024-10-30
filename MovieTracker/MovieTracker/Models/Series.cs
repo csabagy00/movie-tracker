@@ -8,6 +8,7 @@ public class Series : Item
     public int Id { get; set; }
     public int TotalSeasons { get; set; }
     public int AvgEpLength { get; set; }
+    public int EpPerSeason { get; set; }
 
     public MovieTrackerContext Context { get; set; }
 
@@ -30,13 +31,14 @@ public class Series : Item
         Context = context;
     }
     
-    public Series(string title, DateTime release, List<Genre> genres, int totalSeasons, int avgEpLength, bool watched, MovieTrackerContext  context)
+    public Series(string title, DateTime release, List<Genre> genres, int totalSeasons, int avgEpLength, int epPerSeason,bool watched, MovieTrackerContext  context)
     { 
         Title = title;
         ReleaseDate = release;
         Genres = genres;
         TotalSeasons = totalSeasons;
         AvgEpLength = avgEpLength;
+        EpPerSeason = epPerSeason;
         Watched = watched;
         Context = context;
     }
