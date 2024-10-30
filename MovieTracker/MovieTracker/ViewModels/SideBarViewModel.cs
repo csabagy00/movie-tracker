@@ -31,7 +31,7 @@ public class SideBarViewModel : ViewModelBase
         AddItemViewModel = new AddItemViewModel(movieTrackerContext);
         MoviesViewModel = new MoviesViewModel(movieTrackerContext);
         SeriesListViewModel = new SeriesListViewModel(movieTrackerContext);
-        StatisticsViewModel = new StatisticsViewModel();
+        StatisticsViewModel = new StatisticsViewModel(movieTrackerContext);
     }
 
     private void ShowAddItemView(object obj)
@@ -66,6 +66,7 @@ public class SideBarViewModel : ViewModelBase
 
     private void ShowStatisticsView(object obj)
     {
+        StatisticsViewModel.MovieStatsViewModel.RefreshMovieStats();
         MainViewModel.SelectedView = StatisticsViewModel;
     }
 }
