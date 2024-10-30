@@ -22,26 +22,26 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" Text="Watched Movies:"/>
-        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding MoviesCount}" />
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Watched Movies:" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding MoviesCount}" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="Watchlisted Movies:"/>
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding MoviesCountUnwatched}" />
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Watchlisted Movies:" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding MoviesCountUnwatched}" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="2" Text="Overall time spent(mins):"/>
-        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding TimeSpent}" />
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Overall time spent(mins):" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding TimeSpent}" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" Text="Longest movie watched:"/>
-        <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Longest}" />
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Longest movie watched:" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Longest}" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" Text="Shortest movie watched:"/>
-        <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Shortest}" />
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="Shortest movie watched:" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Shortest}" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="5" Text="Most watched Genre"/>
-        <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding MostWatchedGenre}"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Most watched Genre" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
+        <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding MostWatchedGenre}" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="6" Text="Completion Rate"/>
-        <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding CompletionRate, StringFormat='{}{0}%'}" />
+        <TextBlock Grid.Column="0" Grid.Row="6" Text="Completion Rate" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
+        <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding CompletionRate, StringFormat='{}{0}%'}" Margin="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
 
     </Grid>
 </UserControl>
