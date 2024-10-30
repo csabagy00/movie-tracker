@@ -10,7 +10,7 @@ namespace MovieTracker.ViewModels;
 
 public class SeriesStatsViewModel
 {
-    public SeriesStatsModel seriesStatsModel { get; set; }
+    private SeriesStatsModel seriesStatsModel { get; set; }
 
     public SeriesStatsViewModel(MovieTrackerContext context)
     {
@@ -18,7 +18,7 @@ public class SeriesStatsViewModel
         RefreshSeriesStats();
     }
 
-    private void RefreshSeriesStats()
+    public void RefreshSeriesStats()
     {
         _seriesCount = seriesStatsModel.GetWatchedSeriesCount();
         _seriesCountUnwatched = seriesStatsModel.GetUnwatchedSeriesCount();
