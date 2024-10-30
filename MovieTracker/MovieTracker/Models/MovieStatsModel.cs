@@ -1,4 +1,5 @@
-﻿using MovieTracker.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using MovieTracker.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,7 +61,7 @@ public class MovieStatsModel
         min = _context.Movies
             .Where(m => m.Watched == true)
             .Select(m => m.Length)
-            .Sum();
+            .Min();
 
         return _context.Movies
             .Where(m => m.Watched == true && m.Length == min)
@@ -69,11 +70,14 @@ public class MovieStatsModel
 
     public string GetMostWatchedGenre()
     {
-        return _context.Genres
+        string test = _context.Genres
+            .Where(g => EF.Property<int?>(g, "MovieId") != null)
             .GroupBy(g => g.Name)
             .OrderByDescending(g => g.Count())
             .Select(g => g.First())
             .First().Name;
+
+        return test != null ? test : "No genre";
     }
 
     public float GetCompletionRate()
@@ -81,7 +85,7 @@ public class MovieStatsModel
         float allMovies = _context.Movies.Count();
         float watched = _context.Movies.Where(m => m.Watched == true).Count();
 
-        return allMovies / watched * 100;
+        return (watched / allMovies) * 100;
     }
 }
 
