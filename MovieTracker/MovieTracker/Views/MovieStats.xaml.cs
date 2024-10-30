@@ -18,9 +18,9 @@ namespace MovieTracker.Views
     /// <summary>
     /// Interaction logic for AllStats.xaml
     /// </summary>
-    public partial class AllStats : UserControl
+    public partial class MovieStats : UserControl
     {
-        public AllStats()
+        public MovieStats()
         {
             InitializeComponent();
         }
