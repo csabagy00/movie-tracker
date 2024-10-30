@@ -67,6 +67,7 @@ public class SideBarViewModel : ViewModelBase
     private void ShowStatisticsView(object obj)
     {
         StatisticsViewModel.MovieStatsViewModel.RefreshMovieStats();
+        StatisticsViewModel.SeriesStatsViewModel.RefreshSeriesStats();
         MainViewModel.SelectedView = StatisticsViewModel;
     }
 }
