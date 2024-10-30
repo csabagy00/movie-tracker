@@ -32,6 +32,7 @@ public class SeriesViewModel : ViewModelBase
             GenreThree = "";
             TotalSeasons = 0;
             AvgEpLength = 0;
+            EpPerSeason = 0;
             Watched = false;
         }
     }
@@ -171,7 +172,7 @@ public class SeriesViewModel : ViewModelBase
         get { return _series.TotalSeasons; }
         set
         {
-            if(_series.TotalSeasons != value)
+            if (_series.TotalSeasons != value)
             {
                 _series.TotalSeasons = value;
                 OnPropertyChanged(nameof(TotalSeasons));
@@ -184,10 +185,23 @@ public class SeriesViewModel : ViewModelBase
         get { return _series.AvgEpLength; }
         set
         {
-            if(_series.AvgEpLength != value)
+            if (_series.AvgEpLength != value)
             {
                 _series.AvgEpLength = value;
                 OnPropertyChanged(nameof(AvgEpLength));
+            }
+        }
+    }
+
+    public int EpPerSeason
+    {
+        get { return _series.EpPerSeason; }
+        set
+        {
+            if (_series.EpPerSeason != value)
+            {
+                _series.EpPerSeason = value;
+                OnPropertyChanged(nameof(EpPerSeason));
             }
         }
     }

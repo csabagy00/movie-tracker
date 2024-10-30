@@ -13,6 +13,7 @@
                 <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate, StringFormat=\{0:yyyy-mm-dd\}}" Width="100" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Seasons" Binding="{Binding TotalSeasons}" Width="60" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Avg Length/Ep" Binding="{Binding AvgEpLength}"/>
+                <DataGridTextColumn Header="Ep/Season" Binding="{Binding EpPerSeason}"/>
                 <DataGridTextColumn Header="Genres" Binding="{Binding DisplayGenres}"/>
                 <DataGridCheckBoxColumn Header="Watched" Binding="{Binding Watched}"/>
             </DataGrid.Columns>

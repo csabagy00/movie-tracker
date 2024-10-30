@@ -22,6 +22,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Title" VerticalAlignment="Center" Margin="5 20 5 5" FontSize="16"/>
@@ -41,13 +42,16 @@
         
         <TextBlock Grid.Row="5" Grid.Column="0" Text="Avg Length/ep" VerticalAlignment="Center" Margin="5" FontSize="16"/>
         <TextBox Grid.Row="5" Grid.Column="1" Width="120" Margin="5" FontSize="16" Text="{Binding AvgEpLength}"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Ep/Season" VerticalAlignment="Center" Margin="5" FontSize="16"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Width="120" Margin="5" FontSize="16" Text="{Binding EpPerSeason}"/>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="No. of Seasons" VerticalAlignment="Center" Margin="5" FontSize="16"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Width="120" Margin="5" FontSize="16" Text="{Binding TotalSeasons}"/>
         
-        <TextBlock Grid.Row="6" Grid.Column="0" Text="No. of Seasons" VerticalAlignment="Center" Margin="5" FontSize="16"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Width="120" Margin="5" FontSize="16" Text="{Binding TotalSeasons}"/>
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Watched" VerticalAlignment="Center" Margin="5" FontSize="16"/>
+        <CheckBox Grid.Row="8" Grid.Column="1" Margin="5" IsChecked="{Binding Watched}"/>
         
-        <TextBlock Grid.Row="7" Grid.Column="0" Text="Watched" VerticalAlignment="Center" Margin="5" FontSize="16"/>
-        <CheckBox Grid.Row="7" Grid.Column="1" Margin="5" IsChecked="{Binding Watched}"/>
-        
-        <Button Grid.Row="8" Grid.Column="1" Content="Add" Width="100" Command="{Binding AddSeriesCommand}"/>
+        <Button Grid.Row="9" Grid.Column="1" Content="Add" Width="100" Command="{Binding AddSeriesCommand}"/>
     </Grid>
 </UserControl>
