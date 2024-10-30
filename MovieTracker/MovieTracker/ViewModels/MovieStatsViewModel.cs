@@ -10,6 +10,11 @@ public class MovieStatsViewModel : ViewModelBase
     public MovieStatsViewModel(MovieTrackerContext context)
     {
         _model = new MovieStatsModel(context);
+        RefreshMovieStats();
+    }
+
+    public void RefreshMovieStats()
+    {
         _moviesCount = _model.GetWatchedMoviesCount();
         _moviesCountUnwatched = _model.GetUnwatchedMoviesCount();
         _timeSpent = _model.GetTimeSpent();
@@ -70,7 +75,7 @@ public class MovieStatsViewModel : ViewModelBase
     }
 
     private string _mostWatchedGenre;
-    public string MostWatched
+    public string MostWatchedGenre
     {
         get { return _mostWatchedGenre; }
         set
