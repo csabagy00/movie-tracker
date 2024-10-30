@@ -54,7 +54,7 @@
                     </Style.Triggers>
                 </Style>
             </StackPanel.Style>
-            
+            <local:SeriesStats DataContext="{Binding SeriesStatsViewModel}" />
         </StackPanel>
     </Grid>
 </UserControl>
