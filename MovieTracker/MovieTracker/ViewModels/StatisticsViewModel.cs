@@ -15,6 +15,7 @@ public class StatisticsViewModel : ViewModelBase
     private string? _selectedType;
 
     public MovieStatsViewModel MovieStatsViewModel { get; set; }
+    public SeriesStatsViewModel SeriesStatsViewModel { get; set; }
 
     public string SelectedType
     {
@@ -33,5 +34,6 @@ public class StatisticsViewModel : ViewModelBase
     {
         Types = new ObservableCollection<string>{"All", "Movies", "Series"};
         MovieStatsViewModel = new MovieStatsViewModel(context);
+        SeriesStatsViewModel = new SeriesStatsViewModel(context);
     }
 }
