@@ -5,7 +5,7 @@ namespace MovieTracker.ViewModels;
 
 public class MovieStatsViewModel : ViewModelBase
 {
-    private MovieStatsModel _model;
+    private readonly MovieStatsModel _model;
 
     public MovieStatsViewModel(MovieTrackerContext context)
     {
@@ -15,82 +15,89 @@ public class MovieStatsViewModel : ViewModelBase
 
     public void RefreshMovieStats()
     {
-        _moviesCount = _model.GetWatchedMoviesCount();
-        _moviesCountUnwatched = _model.GetUnwatchedMoviesCount();
-        _timeSpent = _model.GetTimeSpent();
-        _longest = _model.GetLongestMovieTitle();
-        _shortest = _model.GetShortestMovieTitle();
-        _mostWatchedGenre = _model.GetMostWatchedGenre();
-        _completionRate = _model.GetCompletionRate();
+        MoviesCount = _model.GetWatchedMoviesCount();
+        MoviesCountUnwatched = _model.GetUnwatchedMoviesCount();
+        TimeSpent = _model.GetTimeSpent();
+        Longest = _model.GetLongestMovieTitle();
+        Shortest = _model.GetShortestMovieTitle();
+        MostWatchedGenre = _model.GetMostWatchedGenre();
+        CompletionRate = _model.GetCompletionRate();
     }
 
     private int _moviesCount;
     public int MoviesCount
     {
-        get { return _moviesCount; }
+        get => _moviesCount; 
         set
         {
-            
+            _moviesCount = value;
+            OnPropertyChanged();
         }
     }
 
     private int _moviesCountUnwatched;
     public int MoviesCountUnwatched
     {
-        get { return _moviesCountUnwatched; }
+        get => _moviesCountUnwatched; 
         set
         {
-
+            _moviesCountUnwatched = value;
+            OnPropertyChanged();
         }
     }
 
     private int _timeSpent;
     public int TimeSpent
     {
-        get { return _timeSpent; }
+        get => _timeSpent;
         set
         {
-
+            _timeSpent = value;
+            OnPropertyChanged();
         }
     }
 
-    private string _longest;
+    private string _longest = "";
     public string Longest
     {
-        get { return _longest; }
+        get => _longest;
         set
         {
-
+            _longest = value;
+            OnPropertyChanged();
         }
     }
 
-    private string _shortest;
+    private string _shortest = "";
     public string Shortest
     {
-        get { return _shortest; }
+        get => _shortest;
         set
         {
-
+            _shortest = value;
+            OnPropertyChanged();
         }
     }
 
-    private string _mostWatchedGenre;
+    private string _mostWatchedGenre = "";
     public string MostWatchedGenre
     {
-        get { return _mostWatchedGenre; }
+        get => _mostWatchedGenre;
         set
         {
-
+            _mostWatchedGenre = value;
+            OnPropertyChanged();
         }
     }
 
     private float _completionRate;
     public float CompletionRate
     {
-        get { return _completionRate; }
+        get => _completionRate; 
         set
         {
-
+            _completionRate = value;
+            OnPropertyChanged();
         }
     }
 }
