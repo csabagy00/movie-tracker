@@ -13,7 +13,6 @@ public class MovieTrackerContext : DbContext
 
     public MovieTrackerContext()
     {
-        ApplyMigration();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
