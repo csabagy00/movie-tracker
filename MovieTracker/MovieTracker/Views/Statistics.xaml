@@ -12,10 +12,15 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
         <TextBlock Grid.Column="0" Text="Type" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" FontSize="16" />
         <ComboBox Grid.Column="1" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="120" Height="20" Margin="10"/>
 
-        <StackPanel>
+        <StackPanel Grid.Row="1">
             <StackPanel.Style>
                 <Style TargetType="StackPanel">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -29,7 +34,7 @@
             
         </StackPanel>
 
-        <StackPanel>
+        <StackPanel Grid.Row="1">
             <StackPanel.Style>
                 <Style TargetType="StackPanel">
                     <Setter Property="Visibility" Value="Collapsed"/>
