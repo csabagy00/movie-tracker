@@ -1,23 +1,19 @@
 ﻿using MovieTracker.Database;
-using System;
-using System.Collections.Generic;
+using MovieTracker.Enums;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MovieTracker.ViewModels;
 
 public class StatisticsViewModel : ViewModelBase
 {
-    public ObservableCollection<string> Types { get; set; }
+    public ObservableCollection<StatType> Types { get; set; }
 
-    private string? _selectedType;
+    private StatType _selectedType;
 
     public MovieStatsViewModel MovieStatsViewModel { get; set; }
     public SeriesStatsViewModel SeriesStatsViewModel { get; set; }
 
-    public string SelectedType
+    public StatType SelectedType
     {
         get { return _selectedType; }
         set
@@ -32,7 +28,7 @@ public class StatisticsViewModel : ViewModelBase
 
     public StatisticsViewModel(MovieTrackerContext context)
     {
-        Types = new ObservableCollection<string>{"All", "Movies", "Series"};
+        Types = new ObservableCollection<StatType>(Enum.GetValues<StatType>());
         MovieStatsViewModel = new MovieStatsViewModel(context);
         SeriesStatsViewModel = new SeriesStatsViewModel(context);
     }
